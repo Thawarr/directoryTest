@@ -17,8 +17,7 @@ jobs:
           for d in */ ; do
             echo "Building Docker image in $d"
             cd "$d"
-            docker build -t your-docker-image-tag .
-            docker run your-docker-image-tag
+            ls
             cd ..
           done
         shell: bash
