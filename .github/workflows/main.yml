@@ -1,0 +1,24 @@
+name: Build and Run Docker Images
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: List directories
+        run: |
+          for d in */ ; do
+            echo "Building Docker image in $d"
+            cd "$d"
+            docker build -t your-docker-image-tag .
+            docker run your-docker-image-tag
+            cd ..
+          done
+        shell: bash
