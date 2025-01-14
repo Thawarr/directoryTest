@@ -14,9 +14,9 @@ jobs:
 
       - name: List directories
         run: |
-          for d in */ ; do
-            echo "Building Docker image in $d"
-            cd "$d"
+          for currentDir in */ ; do
+            echo "Building Docker image in $currentDir"
+            cd "$currentDir"
             ls
             cd ..
           done
